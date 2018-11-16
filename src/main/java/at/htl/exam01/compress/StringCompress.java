@@ -1,5 +1,6 @@
 package at.htl.exam01.compress;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
@@ -15,10 +16,26 @@ public class StringCompress {
      * @param args
      */
     public static void main(String[] args) {
+
+
+
         StringCompress sc = new StringCompress();
+
+        int count = sc.getNoOfLines(FILE_NAME);
+        System.out.println(count);
+
         String[] text = sc.readFromFile(FILE_NAME);
-        sc.print(text);
+        System.out.println(text[1]);
+
+
+
+
     }
+
+
+
+
+
 
 
     /**
@@ -29,6 +46,7 @@ public class StringCompress {
      *
      * Bsp Testdatei
      * 5A
+
      * 3B
      * 4C
      *
@@ -42,9 +60,32 @@ public class StringCompress {
      */
     public String[] readFromFile(String fileName) {
 
+        String[] lines = new String[1000];
+        int i = 0;
 
-        return null;
+        try (Scanner scanner = new Scanner(new FileReader(fileName))) {
+
+            while (scanner.hasNextLine()) {
+
+                lines[i] = scanner.nextLine();
+
+                i++;
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+        return lines;
     }
+
+
+
+
+
 
 
     /**
@@ -55,7 +96,17 @@ public class StringCompress {
      */
     public void print(String[] lines) {
 
+        for (int i = 0; i < lines.length; i++) {
+            System.out.println(lines[i]);
+        }
+
     }
+
+
+
+
+
+
 
     /**
      * Die Anzahl der Zeilen der übergebenen Textdatei wird bestimmt
@@ -65,7 +116,20 @@ public class StringCompress {
      */
     public int getNoOfLines(String fileName) {
 
+        int count = 0;
 
-        return -1;
+        try (Scanner scanner = new Scanner(new FileReader(fileName))) {
+
+            while (scanner.hasNextLine()) {
+                count++;
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(count);
+
+        return count;
     }
 }

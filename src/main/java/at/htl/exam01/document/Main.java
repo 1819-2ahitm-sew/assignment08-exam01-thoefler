@@ -23,6 +23,24 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        int anzahlBooks = 0, anzahlEmails = 0;
+
+        for (int i = 0; i < Objekte.objektes.length; i++) {
+            if (Objekte.objektes[i] instanceof Buch) {
+                anzahlBooks++;
+                System.out.println(Objekte.objektes[i].output());
+            } else if (Objekte.objektes[i] instanceof Email) {
+                anzahlEmails++;
+                System.out.println(Objekte.objektes[i].output());
+            }
+        }
+
+
+        System.out.println("");
+        System.out.println("Anzahl Books:  " + anzahlBooks);
+        System.out.println("Anzahl Emails: " + anzahlEmails);
+
+
 
     }
 
