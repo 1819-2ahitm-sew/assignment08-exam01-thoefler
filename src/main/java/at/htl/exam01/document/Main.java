@@ -25,13 +25,13 @@ public class Main {
 
         int anzahlBooks = 0, anzahlEmails = 0;
 
-        for (int i = 0; i < Objekte.objektes.length; i++) {
-            if (Objekte.objektes[i] instanceof Buch) {
+        for (int i = 0; i < Document.documents.length; i++) {
+            if (Document.documents[i] instanceof Book) {
                 anzahlBooks++;
-                System.out.println(Objekte.objektes[i].output());
-            } else if (Objekte.objektes[i] instanceof Email) {
+                System.out.println(Document.documents[i].output());
+            } else if (Document.documents[i] instanceof Email) {
                 anzahlEmails++;
-                System.out.println(Objekte.objektes[i].output());
+                System.out.println(Document.documents[i].output());
             }
         }
 

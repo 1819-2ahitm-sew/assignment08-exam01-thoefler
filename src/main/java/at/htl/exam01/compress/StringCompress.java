@@ -22,10 +22,14 @@ public class StringCompress {
         StringCompress sc = new StringCompress();
 
         int count = sc.getNoOfLines(FILE_NAME);
-        System.out.println(count);
 
-        String[] text = sc.readFromFile(FILE_NAME);
+        String[] text = sc.readFromFile(FILE_NAME, count);
         System.out.println(text[1]);
+
+        System.out.println(text.length);
+
+
+
 
 
 
@@ -58,9 +62,9 @@ public class StringCompress {
      * @param fileName
      * @return String-Array mit dem entpacktem Text
      */
-    public String[] readFromFile(String fileName) {
+    public String[] readFromFile(String fileName, int count) {
 
-        String[] lines = new String[1000];
+        String[] lines = new String[count];
         int i = 0;
 
         try (Scanner scanner = new Scanner(new FileReader(fileName))) {
@@ -121,6 +125,7 @@ public class StringCompress {
         try (Scanner scanner = new Scanner(new FileReader(fileName))) {
 
             while (scanner.hasNextLine()) {
+                scanner.nextLine();
                 count++;
             }
 
@@ -128,7 +133,6 @@ public class StringCompress {
             e.printStackTrace();
         }
 
-        System.out.println(count);
 
         return count;
     }
