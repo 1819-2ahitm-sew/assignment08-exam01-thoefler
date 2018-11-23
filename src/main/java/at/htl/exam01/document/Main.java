@@ -23,16 +23,26 @@ public class Main {
      */
     public static void main(String[] args) {
 
+
+        Book book = new Book("Rowlings", "Harry Potter und der Stein der Weisen");
+        Book book2 = new Book("Tolkoen", "lordOfTheRings");
+        Email email = new Email("Susi", "Bewerbung", "CoolCompany");
+
+        Document[] documents = new Document[]{book, book2, email};
+
+
+
         int anzahlBooks = 0, anzahlEmails = 0;
 
-        for (int i = 0; i < Document.documents.length; i++) {
-            if (Document.documents[i] instanceof Book) {
+        for (int i = 0; i < documents.length; i++) {
+            System.out.println(documents[i].output());
+
+            if (documents[i] instanceof Book) {
                 anzahlBooks++;
-                System.out.println(Document.documents[i].output());
-            } else if (Document.documents[i] instanceof Email) {
+            } else if (documents[i] instanceof Email) {
                 anzahlEmails++;
-                System.out.println(Document.documents[i].output());
             }
+
         }
 
 

@@ -12,8 +12,8 @@ public class Book extends Document {
 
     @Override
     public String output() {
-        String output = "Book:  '" + title + "' von '" + author + "'" ;
-        return output;
+
+        return "Book:  '" + title + "' von '" + author + "'" ;
     }
 
 

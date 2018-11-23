@@ -2,18 +2,19 @@ package at.htl.exam01.document;
 
 public class Email extends Document {
 
-    String sender, subject, to;
+    String subject, to;
 
-    public Email(String sender, String betreff, String empfaenger) {
-        this.sender = sender;
-        this.subject = betreff;
+
+    public Email(String author, String subject, String to) {
+
+        super(author);
+        this.subject = subject;
         this.to = to;
     }
 
     @Override
     public String output() {
-        String output = "Email: '" + subject + "' von '" + sender + "' an '" + to + "'";
-        return output;
+        return "Email: '" + subject +  "' an '" + to + "'";
     }
 
 }
