@@ -24,15 +24,9 @@ public class StringCompress {
         int count = sc.getNoOfLines(FILE_NAME);
 
         String[] text = sc.readFromFile(FILE_NAME, count);
-        System.out.println(text[1]);
-
-        System.out.println(text.length);
 
 
-
-
-
-
+        print(text);
 
     }
 
@@ -80,7 +74,32 @@ public class StringCompress {
             e.printStackTrace();
         }
 
+        char letter = ' ';
+        int number = 0;
+        String uncompressed[] = new String[count];
 
+
+        for (int j = 0; j < lines.length; j++) {
+
+            String line = "";
+
+            letter = lines[j].charAt(0);
+            number = Integer.parseInt(lines[j].substring(1));
+
+
+            for (int k = 0; k < number; k++) {
+                line = letter + line;
+            }
+
+
+
+            uncompressed[j] = line;
+
+        }
+
+            for (int k = 0; k < count; k++) {
+                lines[k] = uncompressed[k];
+            }
 
 
         return lines;
@@ -98,7 +117,7 @@ public class StringCompress {
      *
      * @param lines String-Array
      */
-    public void print(String[] lines) {
+    public static void print(String[] lines) {
 
         for (int i = 0; i < lines.length; i++) {
             System.out.println(lines[i]);
